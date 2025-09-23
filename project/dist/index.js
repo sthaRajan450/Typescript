@@ -16,12 +16,29 @@ class User {
     email;
     name;
     userId;
+    _courseCount = 1;
     constructor(email, name, userId) {
         this.email = email;
         this.name = name;
         this.userId = userId;
     }
+    deleteToken() {
+        console.log('token deleted');
+    }
+    get getAppleEmail() {
+        return `apple ${this.email}`;
+    }
+    get courseCount() {
+        return this._courseCount;
+    }
+    set courseCount(courseNumber) {
+        if (courseNumber <= 1) {
+            throw new Error('course count should be more than one ');
+        }
+        this._courseCount = courseNumber;
+    }
 }
 const user1 = new User('r@gmail.com', 'rajan', '32');
-console.log(user1);
+user1.courseCount = 4;
+console.log(user1.courseCount);
 //# sourceMappingURL=index.js.map
