@@ -1,6 +1,6 @@
 class Product{
     name:string;
-    price:number;
+  protected  price:number;
     PId:number;
     inCart=false;
     isOrdered=false;
@@ -30,3 +30,18 @@ console.log(product1.buyProduct())
 var product2=new Product('opp0',10000,345   )
 product2.addToCart()
 console.log(product2.buyProduct())
+
+
+class Order extends Product{
+    constructor(){
+        super('laptop',100000,504);
+
+    }
+    getPrice(){
+        return this.price
+    }
+}
+
+
+var order=new Order()
+console.log(order.getPrice())
